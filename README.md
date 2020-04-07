@@ -5,7 +5,7 @@
 #### Step 1: Clone the repository to your local machine.
 
 ```sh
-$ git clone https://github.com/edsherwin/dockerizedsonar-jenkins.git
+$ git clone https://github.com/edsherwin/docker-sonar-jenkins.git
 ```
 
 #### Step 2: Instantiate then Jenkins using the _Dockerfile.jenkins_
