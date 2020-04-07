@@ -1,0 +1,14 @@
+# Required metadata 
+sonar.projectKey=Test-App
+sonar.projectName=Test-App
+sonar.projectVersion=1 
+
+# Comma-separated paths to directories with sources (required) 
+#sonar.sources=src 
+sonar.sources=./
+
+# exclude some folders (typically dependencies) 
+#sonar.exclusions=node_modules 
+
+# Encoding of the source files 
+sonar.sourceEncoding=UTF-8 

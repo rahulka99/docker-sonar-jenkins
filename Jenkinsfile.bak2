@@ -1,0 +1,28 @@
+pipeline {
+         agent any
+         //tools {nodejs "nodejs"}
+         //f15275d15d373a3944edc01ebe4760951321d917
+
+    stages {
+        stage("Code Checkout") {
+            steps {
+                git branch: 'master',
+                //The repository containing the sonar-project.properties
+                url: 'https://github.com/edsherwin/jenkins-git-integration.git'
+                  }
+              }
+         stage("Build Image"){
+             steps{
+                 //This will create image from the Dockerfie. The image contains the scanner installation and sonar properties.
+                sh 'docker build -t my-scanner:v1 -f Dockerfile .'
+             }
+         }     
+         stage('Code Quality'){
+             steps{
+                sh docker.image('my-scanner:v1').inside('-v /var/run/docker.sock:/var/run/docker.sock --entrypoint="" --net bridge'){
+                sh "/usr/local/bin/sonar-scanner"
+                }
+             }
+         }
+    }
+}                     
